@@ -42,7 +42,12 @@ public class TouchControlTest : MonoBehaviour {
         OnTouchInputSwitch(enum_TouchCheckType.TouchLR);
     }
 
-    void OnConsoleOpen(bool open) => Debug.LogError("Console Status:" + open);
+    void OnConsoleOpen(bool open)
+    {
+        Debug.LogError("Console Status:" + open);
+        Time.fixedDeltaTime = open? 0.002f:0.02f;
+        Time.timeScale = open ? .1f : 1f;
+    }
     void OnConsoleClick() => Debug.Log("TestConsole");
     void OnTouchInputSwitch(enum_TouchCheckType type)
     {
@@ -93,7 +98,7 @@ public class TouchControlTest : MonoBehaviour {
     void OnTouchLeftDelta(Vector2 delta)=>m_Rigidbody.AddForce(new Vector3( delta.x,0,delta.y) * 5f);
     void OnTouchRightDelta(Vector2 delta)=>m_Rigidbody.angularVelocity +=new Vector3(delta.y,0 ,-delta.x);
 
-    void OnDragDown(bool down, Vector2 pos) => m_Rigidbody.AddForce(Vector3.up * 200f);
+    void OnDragDown(bool down, Vector2 pos) => m_Rigidbody.AddForce(Vector3.up * 100f);
 
     void OnDrag(Vector2 screenPos) {
 
@@ -110,7 +115,7 @@ public class TouchControlTest : MonoBehaviour {
             m_Rigidbody.velocity = Vector3.zero;
             m_Rigidbody.angularVelocity = Vector3.zero;
             Vector3 offset = m_RaycastHit.point - transform.position;
-            m_Rigidbody.AddForce(offset * 20f);
+            m_Rigidbody.AddForce((down?offset:-offset) * 50f);
         }
     }
 }
