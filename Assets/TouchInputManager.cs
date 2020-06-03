@@ -5,7 +5,7 @@ using UnityEngine;
 public class TouchInputManager : SingletonMono<TouchInputManager>
 {
     public TouchCheckBase m_Check { get; private set; }
-    public void Init(TouchCheckBase check)
+    public void Set(TouchCheckBase check)
     {
         if (m_Check!=null)
             m_Check.Disable();

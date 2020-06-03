@@ -54,9 +54,9 @@ public class TouchControlTest : MonoBehaviour {
         Debug.LogWarning("Switch Touch Mode:" + type);
         switch (type)
         {
-            case enum_TouchCheckType.TouchDown: TouchInputManager.Instance.Init(m_TouchScreenDownMode); break;
-            case enum_TouchCheckType.TouchLR: TouchInputManager.Instance.Init(m_TouchJoyStickMode); break;
-            case enum_TouchCheckType.TouchDrag: TouchInputManager.Instance.Init(m_TouchScreenDragMode); break;
+            case enum_TouchCheckType.TouchDown: TouchInputManager.Instance.Set(m_TouchScreenDownMode); break;
+            case enum_TouchCheckType.TouchLR: TouchInputManager.Instance.Set(m_TouchJoyStickMode); break;
+            case enum_TouchCheckType.TouchDrag: TouchInputManager.Instance.Set(m_TouchScreenDragMode); break;
         }
     }
 

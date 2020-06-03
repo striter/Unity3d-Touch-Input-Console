@@ -86,7 +86,6 @@ public class UIT_TouchConsole : SingletonMono<UIT_TouchConsole> {
             m_CommonButton.onClick.AddListener(() => OnValueClick(m_ValueInput.text));
         }
     }
-
     class EnumSelection
     {
         public Transform transform { get; private set; }
